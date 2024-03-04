@@ -10,6 +10,7 @@ from typing import Dict, List, Any, Callable, Tuple
 
 import black
 
+import argparse
 
 from utils import import_custom_nodes, find_path, add_comfyui_directory_to_sys_path, add_extra_model_paths, get_value_at_index
 
@@ -451,10 +452,16 @@ class ComfyUItoPython:
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input_file", default='workflow_api.json', help="input file path")
+    parser.add_argument("--output_file", default='workflow_api.py', help="output file path")
+    parser.add_argument("--queue_size", default=1, type=int, help="number of outputs that will be created by the script")
+    args = parser.parse_args()
+
     # Update class parameters here
-    input_file = 'workflow_api.json'
-    output_file = 'workflow_api.py'
-    queue_size = 10
+    input_file = args.input_file
+    output_file = args.output_file
+    queue_size = args.queue_size
 
     # Convert ComfyUI workflow to Python
     ComfyUItoPython(input_file=input_file, output_file=output_file, queue_size=queue_size)
