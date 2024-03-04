@@ -169,12 +169,12 @@ if __name__ == "__main__":
 
 6. Move the downloaded .json workflow file to your `ComfyUI/ComfyUI-to-Python-Extension` folder
 
-7. If needed, update the `input_file` and `output_file` variables at the bottom of `comfyui_to_python.py` to match the name of your .json workflow file and desired .py file name. By default, the script will look for a file called `workflow_api.json`. You can also update the `queue_size` variable to your desired number of images that you want to generate in a single script execution. By default, the scripts will generate 10 images.
-
-8. Run the script:
+7. Run the script under your comfyUI folder (where ```main.py``` resides):
    ```bash
    python comfyui_to_python.py
    ```
+
+8. If needed, specify the `--input_file` and `--output_file` parameters at the input of `comfyui_to_python.py` to match the name of your .json workflow file and desired .py file name. By default, the script will look for a file called `workflow_api.json`. You can also update the `--queue_size` option to your desired number of images that you want to generate in a single script execution. By default, the scripts will generate 1 image.
 
 9. After running `comfyui_to_python.py`, a new .py file will be created in the current working directory. If you made no changes, look for `workflow_api.py`.
 
